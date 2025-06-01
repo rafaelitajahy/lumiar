@@ -1,88 +1,911 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumiar Instituto da Mente - Escola de Psicanálise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc; /* Light gray background */
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 1rem; /* Rounded corners for video container */
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .btn-primary {
+        background-color: #6366f1; /* Indigo 500 */
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary:hover {
+        background-color: #4f46e5; /* Indigo 600 */
+      }
+      .card {
+        background-color: white;
+        border-radius: 1rem;
+        padding: 1.5rem; /* Diminuído o padding para acomodar mais cards */
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+      }
+      .section-title {
+        color: #1e293b; /* Slate 800 */
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+      .btn-whatsapp {
+        background-color: #25d366; /* WhatsApp green */
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .btn-whatsapp:hover {
+        background-color: #1da851; /* Darker WhatsApp green */
+      }
+      /* Estilos para o Acordeão (FAQ) */
+      details > summary {
+        list-style: none; /* Remove o marcador padrão */
+      }
+      details > summary::-webkit-details-marker {
+        display: none; /* Remove o marcador padrão no Chrome/Safari */
+      }
+      details > summary::after {
+        content: "\f078"; /* Ícone de seta para baixo do FontAwesome */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        float: right;
+        transition: transform 0.3s ease-in-out;
+      }
+      details[open] > summary::after {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <header class="bg-white shadow-sm py-4 px-6 md:px-12 sticky top-0 z-50">
+      <nav class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-indigo-700">
+          Lumiar Instituto da Mente
+        </h1>
+        <div>
+          <a
+            href="#about"
+            class="text-gray-600 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium"
+            >Sobre</a
+          >
+          <a
+            href="#courses"
+            class="text-gray-600 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium"
+            >Cursos</a
+          >
+          <a
+            href="#curriculum"
+            class="text-gray-600 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium"
+            >Grade Curricular</a
+          >
+          <a
+            href="#teachers"
+            class="text-gray-600 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium"
+            >Corpo Docente</a
+          >
+          <a
+            href="#faq"
+            class="text-gray-600 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium"
+            >FAQ</a
+          >
+          <a href="#contact" class="btn-primary ml-4">Fale Conosco</a>
+        </div>
+      </nav>
+    </header>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lumiar Instituto da Mente</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <section
+      class="relative bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16 md:py-24 px-6 md:px-12 flex items-center justify-center min-h-screen"
+    >
+      <div class="container mx-auto text-center z-10">
+        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          Desvende os Segredos da Mente Humana
+        </h2>
+        <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+          Torne-se um psicanalista de sucesso com a formação completa do Lumiar
+          Instituto da Mente.
+        </p>
 
-    body {
-      color: #fff;
-      font-family: "Roboto", sans-serif;
-    }
+        <div class="video-container mx-auto max-w-4xl mb-12">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
 
-    main {
-      height: 100vh;
-      width: 100%;
-      background-color: #3498db;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      line-height: 1.6;
-      padding: 10px;
-      text-align: center;
-    }
+        <a
+          href="#courses"
+          class="btn-primary text-xl px-8 py-4 inline-block transform hover:scale-105 transition-transform duration-300"
+        >
+          Conheça Nossos Cursos
+        </a>
+      </div>
+      <div class="absolute inset-0 bg-black opacity-30"></div>
+    </section>
 
-    h1 {
-      font-size: 6rem;
-      letter-spacing: 2px;
-    }
+    <section id="about" class="py-16 md:py-24 px-6 md:px-12 bg-white">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          Sobre o Lumiar Instituto da Mente
+        </h3>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <img
+              src="https://placehold.co/600x400/e0e7ff/4338ca?text=Nossa+Missão"
+              alt="Imagem Ilustrativa da Missão do Lumiar Instituto"
+              class="rounded-xl shadow-lg w-full h-auto object-cover"
+            />
+          </div>
+          <div class="md:w-1/2 text-gray-700 leading-relaxed">
+            <p class="mb-4 text-lg">
+              No Lumiar Instituto da Mente, acreditamos no poder transformador
+              da psicanálise. Nossa missão é formar profissionais éticos,
+              competentes e apaixonados, capazes de promover o autoconhecimento
+              e o bem-estar mental em seus pacientes.
+            </p>
+            <p class="mb-4 text-lg">
+              Com um corpo docente altamente qualificado e uma metodologia de
+              ensino inovadora, oferecemos uma experiência de aprendizado
+              profunda e prática, preparando você para os desafios e as
+              recompensas da carreira psicanalítica.
+            </p>
+            <p class="text-lg">
+              Junte-se a nós e faça parte de uma comunidade dedicada ao estudo e
+              à aplicação da psicanálise.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    h2 {
-      font-size: 3rem;
-      letter-spacing: 2px;
-    }
+    <section id="courses" class="py-16 md:py-24 px-6 md:px-12 bg-gray-50">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          Nossos Cursos e Programas
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card flex flex-col">
+            <h4 class="text-2xl font-semibold text-indigo-700 mb-4">
+              Formação em Psicanálise Clínica
+            </h4>
+            <p class="text-gray-600 mb-4 flex-grow">
+              Um programa abrangente para quem busca se tornar um psicanalista
+              profissional, com teoria, supervisão e análise pessoal.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-6">
+              <li>Duração: 3 anos</li>
+              <li>Modalidade: Online e Presencial</li>
+              <li>Certificação reconhecida</li>
+            </ul>
+            <a
+              href="#contact"
+              class="btn-primary inline-block mt-auto self-start"
+              >Saiba Mais</a
+            >
+          </div>
+          <div class="card flex flex-col">
+            <h4 class="text-2xl font-semibold text-indigo-700 mb-4">
+              Pós-Graduação em Psicopatologia Psicanalítica
+            </h4>
+            <p class="text-gray-600 mb-4 flex-grow">
+              Aprofunde seus conhecimentos nas manifestações clínicas e na
+              compreensão psicanalítica das patologias mentais.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-6">
+              <li>Duração: 18 meses</li>
+              <li>Modalidade: Online</li>
+              <li>Para profissionais da saúde</li>
+            </ul>
+            <a
+              href="#contact"
+              class="btn-primary inline-block mt-auto self-start"
+              >Saiba Mais</a
+            >
+          </div>
+          <div class="card flex flex-col">
+            <h4 class="text-2xl font-semibold text-indigo-700 mb-4">
+              Workshops e Extensões
+            </h4>
+            <p class="text-gray-600 mb-4 flex-grow">
+              Cursos de curta duração sobre temas específicos da psicanálise,
+              ideais para atualização e aprofundamento.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-6">
+              <li>Temas variados</li>
+              <li>Flexibilidade de horários</li>
+              <li>Certificado de participação</li>
+            </ul>
+            <a
+              href="#contact"
+              class="btn-primary inline-block mt-auto self-start"
+              >Saiba Mais</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
-    p {
-      font-size: 2rem;
-      color: #4C7C9C;
-      font-weight: 500;
-      margin-top: 28px;
-    }
+    <section id="curriculum" class="py-16 md:py-24 px-6 md:px-12 bg-white">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          Grade Curricular da Formação em Psicanálise
+        </h3>
 
-    a {
-      text-decoration: none;
-      margin: 20px;
-      padding: 10px 20px;
-      color: #2c3e50;
-      background-color: #bdc3c7;
-      font-weight: 600;
-      letter-spacing: 2px;
-      border-radius: 5px;
-      box-shadow: 3px 5px 5px #2c3e50;
-      transition: all .8s ease;
-    }
+        <div
+          class="mb-8 p-6 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg shadow"
+        >
+          <h4
+            class="text-xl font-semibold text-indigo-700 mb-2 flex items-center"
+          >
+            <i class="fas fa-info-circle mr-2"></i>Análise Pessoal Obrigatória
+          </h4>
+          <p class="text-gray-700">
+            Desde o início do curso, o aluno poderá iniciar as análises pessoais
+            obrigatórias.
+          </p>
+          <p class="text-gray-700 mt-1">
+            <strong>Carga horária:</strong> Mínimo de 10 horas e máximo de 50
+            horas.
+          </p>
+        </div>
 
-    a:hover {
-      letter-spacing: 3px;
-      color: #9daebe;
-      background-color: #6a6e70;
-    }
-  </style>
-</head>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 01: Comportamento Emocional Humano
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Formação em Psicanálise</li>
+              <li>Neuropsicanálise</li>
+              <li>Pneumapsicanálise</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 02: Estrutura da Personalidade
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Aspectos Biopsicossociais</li>
+              <li>Psiquismo Fetal e Amamentação</li>
+              <li>Formação da Personalidade Humana</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 03: O Psiquismo Humano
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Consciente, Pré-consciente, Inconsciente</li>
+              <li>Instinto, Catexia, Pulsões</li>
+              <li>ID, EGO, Superego (SE)</li>
+              <li>Metapsicologias (Freudiana e Pneumapsicanálise)</li>
+              <li>Trauma, Recalque, Resistência</li>
+              <li>Mecanismos de Defesa e Fuga</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 04: Complexo de Desenvolvimento Infantil (CDI)
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Fases: Oral, Anal (Uretral/Fecal), Fálica, Genital</li>
+              <li>Puberdade</li>
+              <li>Complexo de Édipo (Freud)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 05: Interpretação e Estudo do Sono
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Interpretação de Sonhos, Associação Livre</li>
+              <li>Chistes, Parapraxias, Atos Falhos</li>
+              <li>Tipos de "Insights"</li>
+              <li>Fisiologia e Alterações do Sono</li>
+              <li>
+                Tipos de Sonhos (Fisiológicos, Inconsciente, Traumáticos, etc.)
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 06: Psiquiatria e Psicofarmacologia Aplicadas
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>
+                Aplicação à Psicanálise, Neuropsicanálise, Pneumapsicanálise
+              </li>
+              <li>Doenças Psíquicas, Espirituais e Mistas (Diferenciação)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 07: Violência Doméstica
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Definição, Legislação, Perspectiva Sistêmica</li>
+              <li>Realidade Brasileira</li>
+              <li>Abuso Sexual, Autoagressão, Aborto</li>
+              <li>Drogadição, Violência Contra Idosos</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 08: Pneumapsicanálise I - Cura Pneumaquântica
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Introdução às Terapias Quânticas</li>
+              <li>Cura Física/Orgânica (Medicina Biológica)</li>
+              <li>Conceitos Fundamentais da Cura Quântica</li>
+              <li>Quantum de Energia e Salto Quântico, Mecânica Quântica</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 09: Neurociência e Holografia Cerebral
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Neurociência Aplicada à Psicanálise</li>
+              <li>Introdução à Holografia Cerebral</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 10: Pneumapsicanálise III - PNB
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Programação NeuroBíblica (PNB)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 11: Psicanálise e Síndrome da Adoração
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Síndrome da Adoração a Celebridades (CWS)</li>
+              <li>Transtorno de Obsessão por Celebridades (COD)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 12: Terapia Familiar e Psicanálise Infantil
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Definições e História da Terapia Familiar</li>
+              <li>Conceitos Básicos e Terapia Familiar na Bíblia</li>
+              <li>
+                Processo Terapêutico e Formação da Família (Visão Psicanalítica)
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 13: Neuropsicanálise - Fundamentos
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Introdução ao Sistema Nervoso</li>
+              <li>O Cérebro, Neurônio, Hemisférios Cerebrais</li>
+              <li>Córtex Cerebral, Sistema Límbico (Componentes e Função)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 13B: Metodologia Científica e Produção Acadêmica
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Estudo das Normas da ABNT</li>
+              <li>Orientação para TCC, Monografia, Dissertação, Tese</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 14: Sexologia e Psicanálise
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Intersecções entre Sexologia e a Prática Psicanalítica</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 15: Escolas Psicanalíticas
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>
+                Escolas: Freudiana, Lacaniana, Junguiana, Kleiniana, Outras
+              </li>
+              <li>Biografia de Winnicott e Importância de Seus Estudos</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 16: Estrutura de Análise
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Componentes e Dinâmica da Análise Psicanalítica</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 17: Supervisão Analítica e Análise Didática I
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Conceitos Fundamentais e Importância na Clínica</li>
+              <li>Interpretação do Ato Analítico</li>
+              <li>Apresentação e Discussão de Casos Clínicos (Seminário)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 18: Supervisão Analítica e Análise Didática II
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Casos Clássicos de Freud e Relevância Atual</li>
+              <li>Apresentação de Casos Clínicos (Seminário)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 19: Sexualidade e Pneumapsicanálise
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Abordagem da Sexualidade sob a Ótica da Pneumapsicanálise</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 20: Ética Geral e Psicanalítica
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Princípios Éticos Gerais</li>
+              <li>O Código de Ética do Psicanalista</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 21: Humanidades Aplicadas à Psicanálise
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>Filosofia Aplicada</li>
+              <li>Sociologia Aplicada</li>
+              <li>Antropologia Aplicada</li>
+              <li>Mitologia Aplicada</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 22: Psicanálise e Dependência Química
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>
+                Compreensão e Intervenção Psicanalítica na Dependência Química
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 23: Psicoterapia Breve e Hipnose
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>
+                Fundamentos da Psicoterapia Breve de Orientação Psicanalítica
+              </li>
+              <li>Introdução à Hipnose Clínica</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 class="text-lg font-semibold text-indigo-700 mb-2">
+              Módulo 24: Seminário de Conclusão
+            </h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm">
+              <li>
+                Revisão Geral das Técnicas Psicanalíticas e Pneumapsicanalíticas
+              </li>
+              <li>
+                Orientação Geral sobre o TCC/Monografia (Fase de Conclusão)
+              </li>
+              <li>Apresentação de Caso Clínico Concluído (LUMIAR)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center text-gray-600 mt-12 text-lg">
+          Esta é uma visão geral da nossa grade curricular. Para o conteúdo
+          programático detalhado de cada módulo,
+          <a
+            href="#contact"
+            class="text-indigo-600 hover:underline font-semibold"
+            >entre em contato conosco</a
+          >!
+        </p>
+      </div>
+    </section>
 
-<body>
-  <main>
-    <h1>Lumiar</h1>
-    <h2>Instituto da Mente</h2>
-    <p>Em construção...</p>
+    <section id="teachers" class="py-16 md:py-24 px-6 md:px-12 bg-gray-50">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          Nosso Corpo Docente
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card text-center">
+            <img
+              src="https://placehold.co/150x150/e0e7ff/4338ca?text=Dr.ª+Elisa"
+              alt="Foto da Dr.ª Elisa Moreira"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md"
+            />
+            <h4 class="text-xl font-semibold text-indigo-700 mb-1">
+              Dr.ª Elisa Moreira
+            </h4>
+            <p class="text-gray-500 text-sm mb-2">
+              Psicanalista Clínica, Doutora em Psicologia
+            </p>
+            <p class="text-gray-600 text-sm mb-4">
+              Com mais de 15 anos de experiência, Dr.ª Elisa é especialista em
+              teoria freudiana e suas aplicações contemporâneas.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a
+                href="#"
+                class="text-indigo-600 hover:text-indigo-800"
+                aria-label="LinkedIn Dr.ª Elisa"
+                ><i class="fab fa-linkedin fa-lg"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-gray-800"
+                aria-label="Lattes Dr.ª Elisa"
+                ><i class="fas fa-graduation-cap fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="card text-center">
+            <img
+              src="https://placehold.co/150x150/c7d2fe/4338ca?text=Prof.+Carlos"
+              alt="Foto do Prof. Carlos Andrade"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md"
+            />
+            <h4 class="text-xl font-semibold text-indigo-700 mb-1">
+              Prof. Carlos Andrade
+            </h4>
+            <p class="text-gray-500 text-sm mb-2">
+              Psicanalista, Mestre em Filosofia
+            </p>
+            <p class="text-gray-600 text-sm mb-4">
+              Prof. Carlos traz uma perspectiva interdisciplinar, conectando a
+              psicanálise com a filosofia e as artes.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a
+                href="#"
+                class="text-indigo-600 hover:text-indigo-800"
+                aria-label="LinkedIn Prof. Carlos"
+                ><i class="fab fa-linkedin fa-lg"></i
+              ></a>
+              <a
+                href="#"
+                class="text-red-600 hover:text-red-800"
+                aria-label="Instagram Prof. Carlos"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="card text-center">
+            <img
+              src="https://placehold.co/150x150/ddd6fe/4338ca?text=Psic.+Sofia"
+              alt="Foto da Psic. Sofia Lima"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md"
+            />
+            <h4 class="text-xl font-semibold text-indigo-700 mb-1">
+              Psic. Sofia Lima
+            </h4>
+            <p class="text-gray-500 text-sm mb-2">
+              Psicanalista Infantil, Especialista em Winnicott
+            </p>
+            <p class="text-gray-600 text-sm mb-4">
+              Sofia é referência em psicanálise infantil e desenvolvimento
+              emocional, com foco nas teorias de Winnicott.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a
+                href="#"
+                class="text-indigo-600 hover:text-indigo-800"
+                aria-label="LinkedIn Psic. Sofia"
+                ><i class="fab fa-linkedin fa-lg"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a href="./alianca.html">Treinamento A Aliança</a>
+    <section class="py-16 md:py-24 px-6 md:px-12 bg-white">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          O Que Nossos Alunos Dizem
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://placehold.co/60x60/d1d5db/374151?text=AP"
+                alt="Foto da Aluna Ana Paula Silva"
+                class="w-12 h-12 rounded-full mr-4 object-cover"
+              />
+              <div>
+                <p class="font-semibold text-indigo-700">Ana Paula Silva</p>
+                <p class="text-sm text-gray-500">Psicanalista Formada</p>
+              </div>
+            </div>
+            <p class="text-gray-700 italic">
+              "A formação no Lumiar foi um divisor de águas na minha carreira. A
+              profundidade do conteúdo e a dedicação dos professores são
+              incomparáveis. Recomendo a todos!"
+            </p>
+          </div>
+          <div class="card">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://placehold.co/60x60/e5e7eb/1f2937?text=JC"
+                alt="Foto do Aluno João Carlos Mendes"
+                class="w-12 h-12 rounded-full mr-4 object-cover"
+              />
+              <div>
+                <p class="font-semibold text-indigo-700">João Carlos Mendes</p>
+                <p class="text-sm text-gray-500">Aluno de Pós-Graduação</p>
+              </div>
+            </div>
+            <p class="text-gray-700 italic">
+              "Sempre quis entender mais sobre a mente humana, e o Lumiar
+              superou minhas expectativas. O ambiente de aprendizado é acolhedor
+              e estimulante."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  </main>
+    <section id="faq" class="py-16 md:py-24 px-6 md:px-12 bg-gray-50">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          Perguntas Frequentes
+        </h3>
+        <div class="max-w-3xl mx-auto space-y-4">
+          <details
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <summary
+              class="font-semibold text-lg text-gray-800 cursor-pointer flex justify-between items-center"
+            >
+              Qual a duração da Formação em Psicanálise Clínica?
+            </summary>
+            <div class="mt-3 text-gray-700 leading-relaxed">
+              <p>
+                Nossa Formação em Psicanálise Clínica tem a duração de 3 anos,
+                divididos em módulos teóricos, práticos e supervisão clínica.
+              </p>
+            </div>
+          </details>
 
-</body>
+          <details
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <summary
+              class="font-semibold text-lg text-gray-800 cursor-pointer flex justify-between items-center"
+            >
+              Preciso ter formação em Psicologia para fazer o curso?
+            </summary>
+            <div class="mt-3 text-gray-700 leading-relaxed">
+              <p>
+                Não necessariamente. A formação é aberta a profissionais de
+                diversas áreas do conhecimento que tenham interesse em se
+                aprofundar na psicanálise. No entanto, recomendamos uma
+                entrevista inicial para alinhar expectativas e verificar o
+                perfil do candidato.
+              </p>
+            </div>
+          </details>
 
+          <details
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <summary
+              class="font-semibold text-lg text-gray-800 cursor-pointer flex justify-between items-center"
+            >
+              Os cursos oferecem certificado?
+            </summary>
+            <div class="mt-3 text-gray-700 leading-relaxed">
+              <p>
+                Sim, todos os nossos cursos de formação e pós-graduação oferecem
+                certificados de conclusão reconhecidos, que atestam sua
+                qualificação.
+              </p>
+            </div>
+          </details>
+
+          <details
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <summary
+              class="font-semibold text-lg text-gray-800 cursor-pointer flex justify-between items-center"
+            >
+              Como funciona a supervisão clínica?
+            </summary>
+            <div class="mt-3 text-gray-700 leading-relaxed">
+              <p>
+                A supervisão clínica é uma parte essencial da formação. Ela
+                ocorre em grupo e individualmente, com psicanalistas
+                experientes, para discutir casos e orientar a prática clínica
+                dos alunos.
+              </p>
+            </div>
+          </details>
+          <details
+            class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <summary
+              class="font-semibold text-lg text-gray-800 cursor-pointer flex justify-between items-center"
+            >
+              Quais são as modalidades de ensino disponíveis?
+            </summary>
+            <div class="mt-3 text-gray-700 leading-relaxed">
+              <p>
+                Oferecemos cursos nas modalidades online, presencial e híbrida,
+                dependendo do programa. Verifique a página específica do curso
+                para mais detalhes sobre a modalidade.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-indigo-700 text-white py-16 md:py-20 px-6 md:px-12 text-center"
+    >
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl font-bold mb-6">
+          Pronto para Iniciar Sua Jornada?
+        </h3>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          Entre em contato conosco hoje mesmo e descubra como o Lumiar Instituto
+          da Mente pode transformar sua vida profissional.
+        </p>
+        <a
+          href="#contact"
+          class="btn-primary bg-white text-indigo-700 hover:bg-gray-100 text-xl px-8 py-4 inline-block transform hover:scale-105 transition-transform duration-300"
+        >
+          Fale com um Consultor
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 px-6 md:px-12 bg-gray-50">
+      <div class="container mx-auto">
+        <h3 class="text-3xl md:text-4xl section-title text-center">
+          Entre em Contato
+        </h3>
+        <div class="max-w-xl mx-auto card text-center">
+          <p class="text-gray-700 text-lg mb-6">
+            Ficou com alguma dúvida ou quer saber mais sobre nossos cursos?
+            Entre em contato conosco!
+          </p>
+          <div class="space-y-3 mb-6">
+            <p class="text-gray-800 text-xl">
+              <i class="fas fa-phone-alt text-indigo-600 mr-2"></i> Telefone:
+              <a href="tel:+55XXYYYYYYYYY" class="hover:text-indigo-700"
+                >(XX) YYYYY-YYYY</a
+              >
+            </p>
+            <p class="text-gray-800 text-xl">
+              <i class="fas fa-envelope text-indigo-600 mr-2"></i> E-mail:
+              <a
+                href="mailto:contato@lumiarinstituto.com.br"
+                class="hover:text-indigo-700"
+                >contato@lumiarinstituto.com.br</a
+              >
+            </p>
+          </div>
+          <a
+            href="https://wa.me/55XXXXXXXXXXX?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos%20do%20Lumiar%20Instituto%20da%20Mente."
+            target="_blank"
+            class="btn-whatsapp inline-flex items-center justify-center text-lg px-6 py-3 transform hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fab fa-whatsapp mr-3 fa-lg"></i> Fale Conosco pelo
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-10 px-6 md:px-12 text-center">
+      <div class="container mx-auto">
+        <p class="mb-2">
+          © <span id="currentYear"></span> Lumiar Instituto da Mente. Todos os
+          direitos reservados.
+        </p>
+        <div class="text-sm">
+          <a href="#" class="text-gray-400 hover:text-white mx-2"
+            >Política de Privacidade</a
+          >
+          <span class="text-gray-400">|</span>
+          <a href="#" class="text-gray-400 hover:text-white mx-2"
+            >Termos de Uso</a
+          >
+        </div>
+        <div class="mt-4">
+          <p class="text-xs text-gray-500">
+            Lumiar Instituto da Mente - CNPJ: XX.XXX.XXX/0001-XX
+          </p>
+          <p class="text-xs text-gray-500">
+            Endereço: Rua Exemplo, 123 - Cidade, Estado - CEP XXXXX-XXX (Se
+            aplicável)
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Atualiza o ano no rodapé dinamicamente
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // Smooth scroll para links âncora
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Adiciona o cabeçalho fixo ao cálculo do scroll para não cobrir o título da seção
+            const headerOffset = document.querySelector("header").offsetHeight;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
